@@ -30,7 +30,7 @@ namespace CoGaDB{
         for(int i=0;i<column_ptr->size();i++){
 
             int val = boost::any_cast<int>(column_ptr->get(i));
-            if(val<50)
+            if(val<10)
                 summation+=val;
         }
 
@@ -42,6 +42,9 @@ namespace CoGaDB{
         boost::shared_ptr<Column<int> > column_ptr (new Column<int>("int column",INT));
         std::vector<int> reference_data(100);
         fill_column<int>(column_ptr, reference_data);
+        for(int i=0; i<100; i++){
+        	std::cout<<" " <<reference_data[i];
+        }
 
         scan  s(column_ptr);
         selection sel(&s);
@@ -49,13 +52,14 @@ namespace CoGaDB{
 
         r.open();
         int data = r.next();
+        std::cout<<"data = "<<data<<std::endl;
         int summa;
         do{
             summa = data;
             data = sel.next(); //summa used as the last value of data becomes EOL
         }while(data!=EOL);
         r.close();
-
+        std::cout<<"data after = "<<summa<<std::endl;
         int summation = compiledQ1(column_ptr);
 
         std::cout<<std::memcmp(&summation, &summa,2)<<std::endl;
