@@ -92,6 +92,8 @@ namespace CoGaDB{
 
         int* volcanoResult=tarray;
 
+
+        //printing for comparison
         for(int i=0; i<100; i++){
                         	std::cout<<" " <<volcanoResult[i];
                         }

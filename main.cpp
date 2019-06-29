@@ -11,8 +11,8 @@
 #include "queries/q1.h"
 //#include "queries/q2.h"
 //#include "queries/q3.h"
-//#include "queries/q4.h"
-#include "queries/q5.h"
+#include "queries/q4.h"
+//#include "queries/q5.h"
 
 using namespace CoGaDB;
 
@@ -21,7 +21,7 @@ int main(){
     //Call to the unit test function for processing
 	std::cout<<" test 5 ";
 
-    executeQ5();
+    executeQ4();
 
 
  return 0;
